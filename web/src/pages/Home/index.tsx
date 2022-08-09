@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header';
 import { Summary } from '../../components/Summary';
+import { Table } from '../../components/Table';
 import {
     HomeContainer,
 } from './styles';
@@ -10,6 +11,7 @@ export const Home = () => {
         <HomeContainer>
             <Header />
             <Summary />
+            <Table />
 
         </HomeContainer>
     );
