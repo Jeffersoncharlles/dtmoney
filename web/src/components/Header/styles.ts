@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+//import * as Dialog from '@radix-ui/react-dialog';
+//styles(Dialog.Trigger) no button funciona
 
 export const HeaderContainer = styled.header`
     background: ${({ theme }) => theme['gray-900']};
