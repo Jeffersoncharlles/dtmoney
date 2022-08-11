@@ -1,5 +1,6 @@
 
 import { useTransactions } from '../../context/TransactionsContext';
+import { dateFormatter, priceFormatter } from '../../utils/formatter';
 import { SearchForm } from './SearchForm';
 import {
     TableContainer,
@@ -20,11 +21,12 @@ export const Table = () => {
                             <td width="50%">{t.description}</td>
                             <td>
                                 <PriceHighlight variant={t.type}>
-                                    {t.price}
+                                    {t.type === 'outcome' && '- '}
+                                    {priceFormatter.format(t.price)}
                                 </PriceHighlight>
                             </td>
                             <td>{t.category}</td>
-                            <td>{t.createdAt}</td>
+                            <td>{dateFormatter.format(new Date(t.createdAt))}</td>
                         </tr>
                     ))}
 

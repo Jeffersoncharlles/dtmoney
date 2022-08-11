@@ -15,6 +15,14 @@
             "category": "Alimentação",
             "price": 50,
             "createdAt": "2022-11-10T16:12:22-03:00"
+        },
+        {
+            "id": 3,
+            "description": "Enel",
+            "type": "outcome",
+            "category": "Casa",
+            "price": 196.43,
+            "createdAt": "2022-11-12T13:12:22-03:00"
         }
     ]
 }
