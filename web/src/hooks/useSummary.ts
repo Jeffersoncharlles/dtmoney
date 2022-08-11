@@ -1,7 +1,8 @@
-import { useTransactions } from '../context/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
+import { TransactionsContext } from '../context/TransactionsContext'
 
 export const useSummary = () => {
-  const { transactions } = useTransactions()
+  const transactions = useContextSelector(TransactionsContext, (context) => { return context.transactions })
 
   // reduce percorre o array e redux o array ao uma nova estrutura de dados
   // acc e o objeto inicial

@@ -10,7 +10,8 @@ import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Controller, useForm } from 'react-hook-form'
-import { useTransactions } from '../../context/TransactionsContext'
+import { TransactionsContext, } from '../../context/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
 
 const newTransactionFormSchema = z.object({
   description: z.string().trim(),
@@ -22,7 +23,7 @@ const newTransactionFormSchema = z.object({
 type NewTransactionsFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export const NewTransactionModal = () => {
-  const { newTransaction } = useTransactions()
+  const newTransaction = useContextSelector(TransactionsContext, (context) => { return context.newTransaction })
   const {
     control, // usar sempre que precisa incluir informação no formulado sem ser nativo html
     register,

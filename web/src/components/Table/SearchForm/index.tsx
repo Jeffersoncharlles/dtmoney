@@ -4,7 +4,8 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { SearchFormContainer } from './styles'
-import { useTransactions } from '../../../context/TransactionsContext'
+import { TransactionsContext } from '../../../context/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
 
 const searchFromSchema = z.object({
   query: z.string().trim(),
@@ -13,7 +14,7 @@ const searchFromSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFromSchema>
 
 export const SearchForm = () => {
-  const { fetchTransactions } = useTransactions()
+  const fetchTransactions = useContextSelector(TransactionsContext, (context) => { return context.fetchTransactions })
   const {
     register,
     handleSubmit,

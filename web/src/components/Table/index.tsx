@@ -1,10 +1,11 @@
-import { useTransactions } from '../../context/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
+import { TransactionsContext } from '../../context/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { SearchForm } from './SearchForm'
 import { TableContainer, TransactionsTable, PriceHighlight } from './styles'
 
 export const Table = () => {
-  const { transactions } = useTransactions()
+  const transactions = useContextSelector(TransactionsContext, (context) => { return context.transactions })
 
   return (
     <TableContainer>
